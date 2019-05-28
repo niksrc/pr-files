@@ -25,6 +25,13 @@ func main() {
 	flag.BoolVar(&hideDeleted, "hide-deleted", true, "Hide deleted files ")
 	flag.Parse()
 
+	if owner == "" || repo == "" || pullNumber == 0 {
+		var CommandLine = flag.NewFlagSet(os.Args[0], 2)
+		fmt.Fprintf(CommandLine.Output(), "Usage of %s:\n", os.Args[0])
+		flag.PrintDefaults()
+		os.Exit(2)
+	}
+
 	token := os.Getenv("GITHUB_TOKEN")
 	ctx := context.Background()
 	ts := oauth2.StaticTokenSource(
