@@ -1,4 +1,4 @@
-module pr-change-files
+module pr-files
 
 go 1.12
 
