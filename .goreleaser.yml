@@ -6,7 +6,7 @@ before:
   hooks:
     - go mod download
 builds:
-- main: main
+- main: main.go
   binary: pr-files
   goarch:
     - amd64
